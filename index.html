@@ -1,1 +1,332 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BY VID — مصاحبه‌های صوتی و تصویری امن و سریع</title>
+    <meta name="description" content="BY VID یک پلتفرم سریع و امن برای مصاحبه‌های حرفه‌ای صوتی و تصویری است.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="BY VID — مصاحبه‌های صوتی و تصویری امن و سریع">
+    <meta property="og:description" content="BY VID یک پلتفرم سریع و امن برای مصاحبه‌های حرفه‌ای صوتی و تصویری است.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/by-vid/">
+    <meta property="og:image" content="./assets/og-image.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BY VID — مصاحبه‌های صوتی و تصویری امن و سریع">
+    <meta name="twitter:description" content="BY VID یک پلتفرم سریع و امن برای مصاحبه‌های حرفه‌ای صوتی و تصویری است.">
+    
+    <meta name="theme-color" content="#0B2A4A">
+    <link rel="canonical" href="https://yourusername.github.io/by-vid/">
+    
+    <!-- فونت اینتر از گوگل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- لینک پرش برای دسترسی‌پذیری -->
+    <a href="#main-content" class="skip-link">پرش به محتوای اصلی</a>
 
+    <!-- ============================================================
+    هدر (سربرگ)
+    ============================================================ -->
+    <header class="header" role="banner" aria-label="سربرگ سایت">
+        <div class="container header__inner">
+            <!-- لوگو -->
+            <div class="header__logo">
+                <a href="#" aria-label="صفحه اصلی BY VID">
+                    <img src="./assets/logo.png" alt="لوگوی BY VID" class="header__logo-img" width="120" height="40">
+                </a>
+            </div>
+
+            <!-- منوی ناوبری -->
+            <nav class="header__nav" aria-label="ناوبری اصلی">
+                <ul class="header__nav-list">
+                    <li><a href="#features" class="header__nav-link">ویژگی‌ها</a></li>
+                    <li><a href="#security" class="header__nav-link">امنیت</a></li>
+                    <li><a href="#how-it-works" class="header__nav-link">روش کار</a></li>
+                </ul>
+            </nav>
+
+            <!-- دکمه دانلود در هدر -->
+            <div class="header__actions">
+                <a href="#" class="btn btn-primary btn-download-header" data-download>
+                    دانلود اپلیکیشن
+                </a>
+                <!-- دکمه همبرگری برای موبایل -->
+                <button class="header__hamburger" aria-label="باز و بسته کردن منو" aria-expanded="false">
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- منوی موبایل -->
+        <div class="header__mobile-menu" role="navigation" aria-label="منوی موبایل">
+            <ul class="header__mobile-nav-list">
+                <li><a href="#features" class="header__mobile-nav-link">ویژگی‌ها</a></li>
+                <li><a href="#security" class="header__mobile-nav-link">امنیت</a></li>
+                <li><a href="#how-it-works" class="header__mobile-nav-link">روش کار</a></li>
+                <li><a href="#" class="btn btn-primary btn-download-mobile" data-download>دانلود اپلیکیشن</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    محتوای اصلی
+    ============================================================ -->
+    <main id="main-content">
+
+        <!-- ============================================================
+        بخش قهرمان (Hero)
+        ============================================================ -->
+        <section class="hero">
+            <div class="container hero__inner">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        مصاحبه‌های حرفه‌ای.<br>
+                        به ساده‌ترین شکل.
+                    </h1>
+                    <p class="hero__subtitle">
+                        BY VID یک پلتفرم سریع و امن برای مصاحبه‌های حرفه‌ای صوتی و تصویری است.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#" class="btn btn-primary btn-large" data-download>
+                            دانلود برای اندروید
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            مشاهده ویژگی‌ها
+                        </a>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <div class="device-frame">
+                        <img src="./assets/app-screen-1.png" alt="نمایش صفحه اپلیکیشن BY VID" class="device-frame__screen" width="300" height="600">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ویژگی‌های برجسته (Feature Highlights)
+        ============================================================ -->
+        <section class="highlights" aria-label="ویژگی‌های برجسته">
+            <div class="container highlights__inner">
+                <div class="highlight-item">
+                    <svg class="highlight-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 7l-7 5 7 5V7z"/>
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                    </svg>
+                    <span class="highlight-item__label">تماس تصویری</span>
+                </div>
+                <div class="highlight-item">
+                    <svg class="highlight-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <span class="highlight-item__label">تماس صوتی</span>
+                </div>
+                <div class="highlight-item">
+                    <svg class="highlight-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span class="highlight-item__label">سریع</span>
+                </div>
+                <div class="highlight-item">
+                    <svg class="highlight-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    <span class="highlight-item__label">امن</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ویژگی‌های اصلی (Main Features)
+        ============================================================ -->
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title">همه چیز برای مصاحبه.</h2>
+                <div class="features__grid">
+                    <div class="feature-card">
+                        <div class="feature-card__icon-wrapper">
+                            <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 7l-7 5 7 5V7z"/>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">تماس تصویری</h3>
+                        <p class="feature-card__description">مصاحبه‌های تصویری واضح و حرفه‌ای را از هر مکانی انجام دهید.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon-wrapper">
+                            <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">تماس صوتی</h3>
+                        <p class="feature-card__description">با مکالمات صوتی قابل اعتماد، زمانی که تصویر نیاز نیست، متصل بمانید.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon-wrapper">
+                            <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">لینک دعوت</h3>
+                        <p class="feature-card__description">یک لینک دعوت ساده ارسال کنید و در چند ثانیه به مهمان خود متصل شوید.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon-wrapper">
+                            <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">سریع</h3>
+                        <p class="feature-card__description">مصاحبه خود را سریعاً با تجربه‌ای ساده و سبک شروع کنید.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon-wrapper">
+                            <svg class="feature-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">امن</h3>
+                        <p class="feature-card__description">طراحی شده با امنیت و حریم خصوصی برای مکالمات حرفه‌ای.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        روش کار (How It Works)
+        ============================================================ -->
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <h2 class="section-title">دعوت. اتصال. مصاحبه.</h2>
+                <div class="how-it-works__steps">
+                    <div class="step">
+                        <span class="step__number">۰۱</span>
+                        <h3 class="step__title">ایجاد</h3>
+                        <p class="step__description">یک مصاحبه جدید شروع کنید.</p>
+                    </div>
+                    <div class="step__arrow" aria-hidden="true">→</div>
+                    <div class="step">
+                        <span class="step__number">۰۲</span>
+                        <h3 class="step__title">دعوت</h3>
+                        <p class="step__description">لینک دعوت را برای مهمان ارسال کنید.</p>
+                    </div>
+                    <div class="step__arrow" aria-hidden="true">→</div>
+                    <div class="step">
+                        <span class="step__number">۰۳</span>
+                        <h3 class="step__title">اتصال</h3>
+                        <p class="step__description">مصاحبه صوتی یا تصویری خود را شروع کنید.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        اسکرین‌شات‌ها (Screenshots)
+        ============================================================ -->
+        <section class="screenshots" id="screenshots">
+            <div class="container">
+                <h2 class="section-title">BY VID را در عمل ببینید.</h2>
+                <div class="screenshots__grid">
+                    <div class="screenshot-item">
+                        <div class="device-frame device-frame--small">
+                            <img src="./assets/app-screen-1.png" alt="نمایش صفحه اصلی اپلیکیشن BY VID" class="device-frame__screen" loading="lazy" width="250" height="500">
+                        </div>
+                    </div>
+                    <div class="screenshot-item screenshot-item--center">
+                        <div class="device-frame device-frame--medium">
+                            <img src="./assets/app-screen-2.png" alt="نمایش صفحه تماس اپلیکیشن BY VID" class="device-frame__screen" loading="lazy" width="280" height="560">
+                        </div>
+                    </div>
+                    <div class="screenshot-item">
+                        <div class="device-frame device-frame--small">
+                            <img src="./assets/app-screen-3.png" alt="نمایش صفحه تنظیمات اپلیکیشن BY VID" class="device-frame__screen" loading="lazy" width="250" height="500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        بخش امنیت (Security)
+        ============================================================ -->
+        <section class="security" id="security">
+            <div class="container security__inner">
+                <div class="security__content">
+                    <div class="security__icon-wrapper">
+                        <svg class="security__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h2 class="security__title">ساخته شده برای مکالمات مهم.</h2>
+                    <p class="security__text">
+                        BY VID برای فراهم کردن محیطی سریع و امن برای مکالمات حرفه‌ای صوتی و تصویری طراحی شده است.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        دعوت به دانلود نهایی (Final CTA)
+        ============================================================ -->
+        <section class="final-cta">
+            <div class="container final-cta__inner">
+                <div class="final-cta__content">
+                    <h2 class="final-cta__title">مصاحبه بعدی شما از اینجا شروع می‌شود.</h2>
+                    <p class="final-cta__text">BY VID را دانلود کنید و به مهمان بعدی خود متصل شوید.</p>
+                    <a href="#" class="btn btn-primary btn-large" data-download>
+                        دانلود برای اندروید
+                    </a>
+                </div>
+                <div class="final-cta__qr">
+                    <img src="./assets/qr-code.png" alt="کیوآر کد برای دانلود BY VID" class="final-cta__qr-image" width="160" height="160">
+                    <p class="final-cta__qr-label">اسکن کنید و دانلود کنید</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        فوتر (Footer)
+        ============================================================ -->
+        <footer class="footer" role="contentinfo">
+            <div class="container footer__inner">
+                <div class="footer__brand">
+                    <img src="./assets/logo.png" alt="BY VID" class="footer__logo" width="100" height="30">
+                    <p class="footer__tagline">سریع. امن. حرفه‌ای.</p>
+                </div>
+                <nav class="footer__nav" aria-label="ناوبری فوتر">
+                    <a href="#features" class="footer__link">ویژگی‌ها</a>
+                    <a href="#security" class="footer__link">امنیت</a>
+                    <a href="#how-it-works" class="footer__link">روش کار</a>
+                    <a href="#" class="footer__link" data-download>دانلود</a>
+                </nav>
+                <div class="footer__copyright">
+                    <p>&copy; ۲۰۲۶ BY VID. تمامی حقوق محفوظ است.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
