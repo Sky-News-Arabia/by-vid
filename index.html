@@ -39,6 +39,8 @@
                 <a href="#" aria-label="الصفحة الرئيسية BY VID">
                     <img src="./assets/logo.png" alt="شعار BY VID" class="header__logo-img" width="120" height="40">
                 </a>
+                <!-- لوگوی مربع شکل در هدر -->
+                <img src="./assets/logo-square.png" alt="BY VID" class="header__logo-square" width="40" height="40">
             </div>
 
             <nav class="header__nav" aria-label="القائمة الرئيسية">
@@ -46,6 +48,7 @@
                     <li><a href="#features" class="header__nav-link">الميزات</a></li>
                     <li><a href="#security" class="header__nav-link">الأمان</a></li>
                     <li><a href="#how-it-works" class="header__nav-link">طريقة العمل</a></li>
+                    <li><a href="#install-guide" class="header__nav-link">طريقة التثبيت</a></li>
                 </ul>
             </nav>
 
@@ -66,6 +69,7 @@
                 <li><a href="#features" class="header__mobile-nav-link">الميزات</a></li>
                 <li><a href="#security" class="header__mobile-nav-link">الأمان</a></li>
                 <li><a href="#how-it-works" class="header__mobile-nav-link">طريقة العمل</a></li>
+                <li><a href="#install-guide" class="header__mobile-nav-link">طريقة التثبيت</a></li>
                 <li><a href="#" class="btn btn-primary btn-download-mobile" data-download>تحميل التطبيق</a></li>
             </ul>
         </div>
@@ -79,6 +83,12 @@
         <section class="hero">
             <div class="container hero__inner">
                 <div class="hero__content">
+                    <!-- لوگوی مربع شکل در بخش قهرمان -->
+                    <div class="hero__badge">
+                        <img src="./assets/logo-square.png" alt="BY VID" class="hero__badge-icon" width="56" height="56">
+                        <span class="hero__badge-text">BY VID</span>
+                    </div>
+                    
                     <h1 class="hero__title">
                         مقابلات احترافية.<br>
                         بأبسط شكل.
@@ -94,10 +104,35 @@
                             استعراض الميزات
                         </a>
                     </div>
+                    
+                    <!-- آمار اعتماد -->
+                    <div class="hero__stats">
+                        <div class="stat-item">
+                            <span class="stat-number">+10K</span>
+                            <span class="stat-label">مقابلة</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.9</span>
+                            <span class="stat-label">تقييم</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">99%</span>
+                            <span class="stat-label">رضا</span>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="hero__image">
-                    <div class="device-frame">
-                        <img src="./assets/app-screen-1.png" alt="شاشة تطبيق BY VID" class="device-frame__screen" width="300" height="600">
+                    <div class="hero__image-wrapper">
+                        <div class="device-frame">
+                            <img src="./assets/app-screen-1.png" alt="شاشة تطبيق BY VID" class="device-frame__screen" width="300" height="600">
+                        </div>
+                        <!-- لوگوی مربع شکل روی دستگاه -->
+                        <div class="device-badge">
+                            <img src="./assets/logo-square.png" alt="BY VID" width="48" height="48">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -203,6 +238,89 @@
         </section>
 
         <!-- ============================================================
+        INSTALLATION GUIDE - بخش جدید آموزش نصب
+        ============================================================ -->
+        <section class="install-guide" id="install-guide">
+            <div class="container">
+                <div class="install-guide__header">
+                    <span class="install-guide__badge">📱 دليل التثبيت</span>
+                    <h2 class="section-title">كيفية تثبيت BY VID في ٣ خطوات</h2>
+                    <p class="install-guide__subtitle">اتبع الخطوات البسيطة التالية لتثبيت التطبيق على هاتفك</p>
+                </div>
+                
+                <div class="install-guide__steps">
+                    <!-- مرحله ۱ -->
+                    <div class="install-step">
+                        <div class="install-step__number">٠١</div>
+                        <div class="install-step__content">
+                            <div class="install-step__image-wrapper">
+                                <img src="./assets/install-step-1.png" alt="تحميل ملف APK" class="install-step__image" loading="lazy">
+                                <div class="install-step__image-overlay">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="install-step__title">تحميل الملف</h3>
+                            <p class="install-step__description">اضغط على زر "تحميل لأندرويد" لتحميل ملف التطبيق</p>
+                            <div class="install-step__tip">
+                                <span>💡</span>
+                                <span>حجم الملف حوالي ٢٠ ميجابايت</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- مرحله ۲ -->
+                    <div class="install-step">
+                        <div class="install-step__number">٠٢</div>
+                        <div class="install-step__content">
+                            <div class="install-step__image-wrapper">
+                                <img src="./assets/install-step-2.png" alt="تثبيت التطبيق" class="install-step__image" loading="lazy">
+                                <div class="install-step__image-overlay">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        <polyline points="9 12 12 15 15 12"/>
+                                        <polyline points="12 9 12 15"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="install-step__title">تثبيت التطبيق</h3>
+                            <p class="install-step__description">افتح الملف واختر "تثبيت" للبدء بعملية التثبيت</p>
+                            <div class="install-step__tip">
+                                <span>⚙️</span>
+                                <span>قد تحتاج إلى تفعيل "مصادر غير معروفة"</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- مرحله ۳ -->
+                    <div class="install-step">
+                        <div class="install-step__number">٠٣</div>
+                        <div class="install-step__content">
+                            <div class="install-step__image-wrapper">
+                                <img src="./assets/install-step-3.png" alt="بدء استخدام BY VID" class="install-step__image" loading="lazy">
+                                <div class="install-step__image-overlay">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="install-step__title">ابدأ المقابلة</h3>
+                            <p class="install-step__description">افتح التطبيق وابدأ أول مقابلة احترافية لك</p>
+                            <div class="install-step__tip">
+                                <span>🎯</span>
+                                <span>لا يحتاج إلى إنشاء حساب للبدء</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
         HOW IT WORKS
         ============================================================ -->
         <section class="how-it-works" id="how-it-works">
@@ -301,13 +419,17 @@
         <footer class="footer" role="contentinfo">
             <div class="container footer__inner">
                 <div class="footer__brand">
-                    <img src="./assets/logo.png" alt="BY VID" class="footer__logo" width="100" height="30">
+                    <div class="footer__brand-logos">
+                        <img src="./assets/logo.png" alt="BY VID" class="footer__logo" width="100" height="30">
+                        <img src="./assets/logo-square.png" alt="BY VID" class="footer__logo-square" width="32" height="32">
+                    </div>
                     <p class="footer__tagline">سريع. آمن. احترافي.</p>
                 </div>
                 <nav class="footer__nav" aria-label="قائمة التذييل">
                     <a href="#features" class="footer__link">الميزات</a>
                     <a href="#security" class="footer__link">الأمان</a>
                     <a href="#how-it-works" class="footer__link">طريقة العمل</a>
+                    <a href="#install-guide" class="footer__link">طريقة التثبيت</a>
                     <a href="#" class="footer__link" data-download>تحميل</a>
                 </nav>
                 <div class="footer__copyright">
