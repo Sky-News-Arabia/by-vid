@@ -2,22 +2,9 @@
  * ============================================================
  * پیکربندی BY VID
  * ============================================================
- * تمام تنظیمات در یک مکان متمرکز شده است.
- * برای تغییر مسیر دانلود، فقط این متغیر را ویرایش کنید.
  */
 
-// ============================================================
-// پیکربندی - مسیر دانلود APK
-// ============================================================
 const APK_URL = './download/by-vid.apk';
-
-/**
- * ============================================================
- * مدیریت دکمه‌های دانلود
- * ============================================================
- * تمام دکمه‌های دانلود از یک مسیر واحد استفاده می‌کنند.
- * با تغییر APK_URL، همه دکمه‌ها به‌روز می‌شوند.
- */
 
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
@@ -31,10 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         button.setAttribute('href', APK_URL);
         button.setAttribute('download', 'by-vid.apk');
         
-        // اضافه کردن event listener برای ردیابی (اختیاری)
         button.addEventListener('click', function(e) {
-            // می‌توانید در اینجا کد ردیابی اضافه کنید
-            // مثال: console.log('Download initiated:', APK_URL);
+            // ردیابی دانلود (اختیاری)
+            console.log('📥 Download initiated:', APK_URL);
         });
     });
     
@@ -52,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = isOpen ? '' : 'hidden';
         });
         
-        // بستن منو با کلیک روی لینک‌ها
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -62,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // بستن منو با کلیک خارج از آن
         document.addEventListener('click', function(e) {
             if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
                 hamburger.setAttribute('aria-expanded', 'false');
@@ -73,39 +57,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ============================================================
-    // ۳. هدر چسبنده با تغییر سایه در اسکرول
+    // ۳. هدر چسبنده
     // ============================================================
     const header = document.querySelector('.header');
-    let lastScrollY = 0;
     
     if (header) {
         window.addEventListener('scroll', function() {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 20) {
+            if (window.scrollY > 20) {
                 header.classList.add('header--scrolled');
             } else {
                 header.classList.remove('header--scrolled');
             }
-            
-            lastScrollY = currentScrollY;
         }, { passive: true });
     }
     
     // ============================================================
-    // ۴. انیمیشن fade-in با Intersection Observer
+    // ۴. انیمیشن fade-in
     // ============================================================
-    const fadeElements = document.querySelectorAll('.feature-card, .step, .screenshot-item, .security__content, .final-cta__content');
+    const fadeElements = document.querySelectorAll('.feature-card, .step, .screenshot-item, .security__content, .final-cta__content, .install-step');
     
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    // افزودن تاخیر برای ایجاد افکت آبشاری
                     setTimeout(() => {
                         entry.target.classList.add('fade-in--visible');
                     }, index * 100);
-                    
                     observer.unobserve(entry.target);
                 }
             });
@@ -119,14 +96,13 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(el);
         });
     } else {
-        // Fallback برای مرورگرهای قدیمی
         fadeElements.forEach(el => {
             el.classList.add('fade-in--visible');
         });
     }
     
     // ============================================================
-    // ۵. اسکرول نرم برای لینک‌های داخلی
+    // ۵. اسکرول نرم
     // ============================================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -153,11 +129,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const footerYear = document.querySelector('.footer__copyright p');
     if (footerYear) {
         const currentYear = new Date().getFullYear();
-        footerYear.textContent = `© ${currentYear} BY VID. تمامی حقوق محفوظ است.`;
+        footerYear.textContent = `© ${currentYear} BY VID. جميع الحقوق محفوظة.`;
     }
     
     // ============================================================
-    // ۷. پشتیبانی از کیبورد برای منوی موبایل
+    // ۷. پشتیبانی از کیبورد
     // ============================================================
     const mobileMenuLinks = document.querySelectorAll('.header__mobile-nav-link');
     mobileMenuLinks.forEach((link, index) => {
@@ -167,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 hamburger.click();
             }
             
-            // حرکت با کلیدهای جهت‌دار
             if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
                 e.preventDefault();
                 const direction = e.key === 'ArrowDown' ? 1 : -1;
@@ -180,15 +155,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ============================================================
-    // ۸. لاگ اطلاعات در کنسول (برای توسعه‌دهندگان)
-    // ============================================================
     console.log('✅ BY VID Landing Page loaded successfully');
     console.log(`📱 APK Download URL: ${APK_URL}`);
-    console.log('🔧 To change download path, edit APK_URL in script.js');
 });
 
-// ============================================================
-// صادر کردن برای استفاده در صورت نیاز
-// ============================================================
 export { APK_URL };
