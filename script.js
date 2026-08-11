@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'use strict';
     
     // ============================================================
-    // ۱. تنظیم مسیر دانلود برای همه دکمه‌ها
+    // ۱. تنظیم مسیر دانلود
     // ============================================================
     const downloadButtons = document.querySelectorAll('[data-download]');
     
@@ -19,13 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
         button.setAttribute('download', 'by-vid.apk');
         
         button.addEventListener('click', function(e) {
-            // ردیابی دانلود (اختیاری)
             console.log('📥 Download initiated:', APK_URL);
         });
     });
     
     // ============================================================
-    // ۲. منوی همبرگری موبایل
+    // ۲. منوی همبرگری
     // ============================================================
     const hamburger = document.querySelector('.header__hamburger');
     const mobileMenu = document.querySelector('.header__mobile-menu');
@@ -74,7 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================================
     // ۴. انیمیشن fade-in
     // ============================================================
-    const fadeElements = document.querySelectorAll('.feature-card, .step, .screenshot-item, .security__content, .final-cta__content, .install-step');
+    const fadeElements = document.querySelectorAll(
+        '.feature-card, .step, .screenshot-item, .security__content, .final-cta__content, .install-step'
+    );
     
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
@@ -113,7 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetElement) {
                 e.preventDefault();
                 const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + 
+                                      window.pageYOffset - headerHeight;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -124,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ============================================================
-    // ۶. به‌روزرسانی سال در فوتر
+    // ۶. به‌روزرسانی سال
     // ============================================================
     const footerYear = document.querySelector('.footer__copyright p');
     if (footerYear) {
