@@ -1,1018 +1,331 @@
 /* ============================================================
-   متغیرهای CSS
+   اضافات جدید - لوگوی مربع شکل و آموزش نصب
    ============================================================ */
-:root {
-    /* رنگ‌های اصلی */
-    --color-primary: #0B2A4A;
-    --color-accent: #E53935;
-    --color-text-primary: #111827;
-    --color-text-secondary: #64748B;
-    --color-bg-light: #F8FAFC;
-    --color-white: #FFFFFF;
-    
-    /* فونت‌ها */
-    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    
-    /* فاصله‌ها - سیستم ۸px */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-xxl: 48px;
-    --spacing-xxxl: 64px;
-    --spacing-xxxxl: 80px;
-    
-    /* انحنا */
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 20px;
-    
-    /* سایه‌ها */
-    --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.06);
-    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
-    
-    /* انیمیشن */
-    --transition-fast: 150ms ease;
-    --transition-medium: 300ms ease;
-    --transition-slow: 400ms ease;
-    
-    /* عرض‌ها */
-    --container-max: 1200px;
-    --header-height: 70px;
-}
 
 /* ============================================================
-   ریست و پایه
+   لوگوی مربع شکل در هدر
    ============================================================ */
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-    font-family: var(--font-family);
-    color: var(--color-text-primary);
-    background-color: var(--color-white);
-    line-height: 1.6;
-    direction: rtl;
-}
-
-/* لینک پرش برای دسترسی‌پذیری */
-.skip-link {
-    position: absolute;
-    top: -999px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-primary);
-    color: var(--color-white);
-    padding: var(--spacing-md) var(--spacing-xl);
-    border-radius: var(--radius-md);
-    z-index: 9999;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.skip-link:focus {
-    top: var(--spacing-md);
-}
-
-/* ============================================================
-   کانتینر
-   ============================================================ */
-.container {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--spacing-lg);
-}
-
-/* ============================================================
-   دکمه‌ها
-   ============================================================ */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-md) var(--spacing-xl);
-    border-radius: var(--radius-md);
-    font-family: var(--font-family);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    line-height: 1.5;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    border: 2px solid transparent;
-    gap: var(--spacing-sm);
-    min-height: 48px;
-}
-
-/* دکمه اصلی */
-.btn-primary {
-    background-color: var(--color-accent);
-    color: var(--color-white);
-    border-color: var(--color-accent);
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-    background-color: #c62828;
-    border-color: #c62828;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
-}
-
-.btn-primary:focus-visible {
-    outline: 3px solid var(--color-accent);
-    outline-offset: 2px;
-}
-
-/* دکمه ثانویه */
-.btn-secondary {
-    background-color: transparent;
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    transform: translateY(-2px);
-}
-
-.btn-secondary:focus-visible {
-    outline: 3px solid var(--color-primary);
-    outline-offset: 2px;
-}
-
-/* دکمه بزرگ */
-.btn-large {
-    padding: var(--spacing-lg) var(--spacing-xxl);
-    font-size: 1.125rem;
-    min-height: 56px;
-    border-radius: var(--radius-lg);
-}
-
-/* ============================================================
-   هدر (سربرگ)
-   ============================================================ */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    height: var(--header-height);
-    transition: all var(--transition-medium);
-}
-
-.header--scrolled {
-    box-shadow: var(--shadow-subtle);
-}
-
-.header__inner {
+.header__logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 100%;
+    gap: var(--spacing-sm);
 }
 
-/* لوگو */
-.header__logo {
-    flex-shrink: 0;
-}
-
-.header__logo-img {
-    display: block;
-    height: 32px;
-    width: auto;
+.header__logo-square {
+    display: none;
+    border-radius: var(--radius-sm);
     object-fit: contain;
 }
 
-/* ناوبری */
-.header__nav {
-    display: none;
-}
-
-.header__nav-list {
-    display: flex;
-    list-style: none;
-    gap: var(--spacing-xl);
-}
-
-.header__nav-link {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    transition: color var(--transition-fast);
-    padding: var(--spacing-sm) 0;
-    position: relative;
-}
-
-.header__nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-accent);
-    transition: width var(--transition-medium);
-}
-
-.header__nav-link:hover,
-.header__nav-link:focus {
-    color: var(--color-primary);
-}
-
-.header__nav-link:hover::after,
-.header__nav-link:focus::after {
-    width: 100%;
-}
-
-.header__nav-link:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 4px;
-}
-
-/* دکمه‌های هدر */
-.header__actions {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.btn-download-header {
-    display: none;
-}
-
-/* دکمه همبرگری */
-.header__hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-sm);
-    transition: background var(--transition-fast);
-}
-
-.header__hamburger:hover {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-.header__hamburger:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-}
-
-.hamburger__line {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--color-text-primary);
-    border-radius: 2px;
-    transition: all var(--transition-medium);
-    transform-origin: center;
-}
-
-.header__hamburger[aria-expanded="true"] .hamburger__line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.header__hamburger[aria-expanded="true"] .hamburger__line:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.header__hamburger[aria-expanded="true"] .hamburger__line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* منوی موبایل */
-.header__mobile-menu {
-    position: fixed;
-    top: var(--header-height);
-    left: 0;
-    right: 0;
-    background-color: var(--color-white);
-    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
-    box-shadow: var(--shadow-medium);
-    transform: translateY(-120%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-medium);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.header__mobile-menu--open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-}
-
-.header__mobile-nav-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-}
-
-.header__mobile-nav-link {
-    color: var(--color-text-primary);
-    text-decoration: none;
-    font-size: 1.125rem;
-    font-weight: 500;
-    padding: var(--spacing-sm) 0;
-    display: block;
-    transition: color var(--transition-fast);
-}
-
-.header__mobile-nav-link:hover,
-.header__mobile-nav-link:focus {
-    color: var(--color-accent);
-}
-
-.header__mobile-nav-link:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-}
-
-.btn-download-mobile {
-    width: 100%;
-    justify-content: center;
-    margin-top: var(--spacing-sm);
+@media (min-width: 768px) {
+    .header__logo-square {
+        display: block;
+    }
 }
 
 /* ============================================================
-   بخش قهرمان (Hero)
+   بخش قهرمان - نشان و آمار
    ============================================================ */
-.hero {
-    padding: calc(var(--header-height) + var(--spacing-xxxl)) 0 var(--spacing-xxxl);
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, var(--color-white) 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-.hero__inner {
-    display: grid;
-    gap: var(--spacing-xxl);
-}
-
-.hero__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-}
-
-.hero__title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--color-primary);
-    letter-spacing: -0.02em;
-}
-
-.hero__subtitle {
-    font-size: clamp(1rem, 1.2vw, 1.25rem);
-    color: var(--color-text-secondary);
-    max-width: 520px;
-    line-height: 1.7;
-}
-
-.hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-sm);
-}
-
-/* تصویر قهرمان */
-.hero__image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* قاب دستگاه */
-.device-frame {
-    position: relative;
-    width: 280px;
-    aspect-ratio: 9/19;
-    background: var(--color-primary);
-    border-radius: 32px;
-    padding: 12px;
-    box-shadow: var(--shadow-medium);
-}
-
-.device-frame::before {
-    content: '';
-    position: absolute;
-    top: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 0 0 12px 12px;
-    z-index: 2;
-}
-
-.device-frame__screen {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    display: block;
-}
-
-.device-frame--small {
-    width: 220px;
-}
-
-.device-frame--medium {
-    width: 260px;
-}
-
-/* ============================================================
-   ویژگی‌های برجسته (Highlights)
-   ============================================================ */
-.highlights {
-    padding: var(--spacing-xxl) 0;
-    background-color: var(--color-white);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.highlights__inner {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
-}
-
-.highlight-item {
-    display: flex;
+.hero__badge {
+    display: inline-flex;
     align-items: center;
     gap: var(--spacing-sm);
-    color: var(--color-text-secondary);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    background: rgba(11, 42, 74, 0.08);
+    padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm) var(--spacing-md);
+    border-radius: 50px;
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid rgba(11, 42, 74, 0.1);
 }
 
-.highlight-item__icon {
-    width: 20px;
-    height: 20px;
-    color: var(--color-accent);
-    flex-shrink: 0;
+.hero__badge-icon {
+    border-radius: var(--radius-sm);
+    object-fit: contain;
 }
 
-.highlight-item__label {
+.hero__badge-text {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+}
+
+/* آمار اعتماد */
+.hero__stats {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.75rem;
     color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* نشان روی دستگاه */
+.hero__image-wrapper {
+    position: relative;
+}
+
+.device-badge {
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm);
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.device-badge img {
+    display: block;
+    border-radius: var(--radius-sm);
 }
 
 /* ============================================================
-   ویژگی‌های اصلی (Features)
+   بخش آموزش نصب (Installation Guide)
    ============================================================ */
-.features {
+.install-guide {
     padding: var(--spacing-xxxl) 0;
-    background-color: var(--color-white);
+    background: linear-gradient(180deg, var(--color-bg-light) 0%, var(--color-white) 100%);
 }
 
-.section-title {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 800;
+.install-guide__header {
     text-align: center;
-    color: var(--color-primary);
     margin-bottom: var(--spacing-xxl);
-    letter-spacing: -0.01em;
 }
 
-.features__grid {
+.install-guide__badge {
+    display: inline-block;
+    background: rgba(229, 57, 53, 0.1);
+    color: var(--color-accent);
+    padding: var(--spacing-xs) var(--spacing-lg);
+    border-radius: 50px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: var(--spacing-md);
+}
+
+.install-guide__subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.install-guide__steps {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.feature-card {
+.install-step {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
     background: var(--color-white);
     padding: var(--spacing-xl);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     border: 1px solid rgba(0, 0, 0, 0.06);
     transition: all var(--transition-medium);
+    position: relative;
 }
 
-.feature-card:hover {
+.install-step:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
     border-color: transparent;
 }
 
-.feature-card__icon-wrapper {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: rgba(11, 42, 74, 0.08);
-    border-radius: var(--radius-sm);
-    margin-bottom: var(--spacing-md);
-}
-
-.feature-card__icon {
-    width: 24px;
-    height: 24px;
-    color: var(--color-primary);
-}
-
-.feature-card__title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-}
-
-.feature-card__description {
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-}
-
-/* ============================================================
-   روش کار (How It Works)
-   ============================================================ */
-.how-it-works {
-    padding: var(--spacing-xxxl) 0;
-    background-color: var(--color-bg-light);
-}
-
-.how-it-works__steps {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    align-items: center;
-}
-
-.step {
-    text-align: center;
-    padding: var(--spacing-xl);
-    background: var(--color-white);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    width: 100%;
-    max-width: 300px;
-    transition: all var(--transition-medium);
-}
-
-.step:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-}
-
-.step__number {
-    display: inline-block;
-    font-size: 2.5rem;
+.install-step__number {
+    flex-shrink: 0;
+    font-size: 2rem;
     font-weight: 900;
     color: var(--color-accent);
-    opacity: 0.3;
-    margin-bottom: var(--spacing-sm);
-    letter-spacing: -0.02em;
+    opacity: 0.2;
+    line-height: 1;
+    min-width: 50px;
+    text-align: center;
 }
 
-.step__title {
-    font-size: 1.25rem;
+.install-step__content {
+    flex: 1;
+}
+
+.install-step__image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: var(--color-bg-light);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.install-step__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-medium);
+}
+
+.install-step:hover .install-step__image {
+    transform: scale(1.02);
+}
+
+.install-step__image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(11, 42, 74, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.install-step:hover .install-step__image-overlay {
+    opacity: 1;
+}
+
+.install-step__image-overlay svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-white);
+}
+
+.install-step__title {
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: var(--spacing-xs);
 }
 
-.step__description {
+.install-step__description {
     font-size: 0.9375rem;
     color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
 }
 
-.step__arrow {
-    display: none;
-    font-size: 1.5rem;
-    color: var(--color-text-secondary);
-    opacity: 0.3;
-}
-
-/* ============================================================
-   اسکرین‌شات‌ها (Screenshots)
-   ============================================================ */
-.screenshots {
-    padding: var(--spacing-xxxl) 0;
-    background-color: var(--color-white);
-}
-
-.screenshots__grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-xl);
-}
-
-.screenshot-item {
-    display: flex;
-    justify-content: center;
-    transition: all var(--transition-medium);
-}
-
-.screenshot-item:hover {
-    transform: translateY(-6px);
-}
-
-.screenshot-item--center {
-    order: -1;
-}
-
-/* ============================================================
-   بخش امنیت (Security)
-   ============================================================ */
-.security {
-    padding: var(--spacing-xxxl) 0;
-    background-color: var(--color-primary);
-}
-
-.security__inner {
-    text-align: center;
-}
-
-.security__icon-wrapper {
+.install-step__tip {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 72px;
-    height: 72px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 50%;
-    margin-bottom: var(--spacing-lg);
-}
-
-.security__icon {
-    width: 36px;
-    height: 36px;
-    color: var(--color-white);
-}
-
-.security__title {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 800;
-    color: var(--color-white);
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -0.01em;
-}
-
-.security__text {
-    font-size: clamp(1rem, 1.1vw, 1.1875rem);
-    color: rgba(255, 255, 255, 0.75);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
-
-/* ============================================================
-   دعوت به دانلود نهایی (Final CTA)
-   ============================================================ */
-.final-cta {
-    padding: var(--spacing-xxxl) 0;
-    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-bg-light) 100%);
-}
-
-.final-cta__inner {
-    display: grid;
-    gap: var(--spacing-xxl);
-    align-items: center;
-    text-align: center;
-}
-
-.final-cta__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-    align-items: center;
-}
-
-.final-cta__title {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 800;
-    color: var(--color-primary);
-    letter-spacing: -0.01em;
-}
-
-.final-cta__text {
-    font-size: clamp(1rem, 1.1vw, 1.1875rem);
-    color: var(--color-text-secondary);
-}
-
-.final-cta__qr {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: var(--spacing-sm);
-}
-
-.final-cta__qr-image {
-    width: 160px;
-    height: 160px;
-    border-radius: var(--radius-sm);
-    border: 2px solid rgba(0, 0, 0, 0.06);
-    padding: var(--spacing-sm);
-    background: var(--color-white);
-}
-
-.final-cta__qr-label {
+    background: rgba(11, 42, 74, 0.06);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 50px;
     font-size: 0.8125rem;
     color: var(--color-text-secondary);
-    font-weight: 500;
+}
+
+.install-step__tip span:first-child {
+    font-size: 1rem;
 }
 
 /* ============================================================
-   فوتر (Footer)
+   فوتر با لوگوی مربع
    ============================================================ */
-.footer {
-    padding: var(--spacing-xxl) 0;
-    background-color: var(--color-white);
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.footer__inner {
-    display: grid;
-    gap: var(--spacing-xl);
-    text-align: center;
-}
-
-.footer__brand {
+.footer__brand-logos {
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: var(--spacing-sm);
 }
 
-.footer__logo {
-    display: block;
-    height: 28px;
-    width: auto;
+.footer__logo-square {
+    border-radius: var(--radius-sm);
     object-fit: contain;
 }
 
-.footer__tagline {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    font-weight: 400;
-}
-
-.footer__nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-lg);
-}
-
-.footer__link {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: color var(--transition-fast);
-}
-
-.footer__link:hover,
-.footer__link:focus {
-    color: var(--color-primary);
-}
-
-.footer__link:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-}
-
-.footer__copyright {
-    font-size: 0.8125rem;
-    color: var(--color-text-secondary);
-    opacity: 0.7;
-}
-
 /* ============================================================
-   انیمیشن‌های اسکرول (با Intersection Observer)
-   ============================================================ */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all var(--transition-slow);
-}
-
-.fade-in--visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ============================================================
-   رسپانسیو - دسکتاپ
+   رسپانسیو برای بخش آموزش نصب
    ============================================================ */
 @media (min-width: 768px) {
-    /* هدر */
-    .header__nav {
-        display: block;
-    }
-    
-    .btn-download-header {
-        display: inline-flex;
-    }
-    
-    .header__hamburger {
-        display: none;
-    }
-    
-    .header__mobile-menu {
-        display: none !important;
-    }
-    
-    /* ویژگی‌های برجسته */
-    .highlights__inner {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    
-    /* ویژگی‌های اصلی */
-    .features__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* روش کار */
-    .how-it-works__steps {
-        flex-direction: row;
-        justify-content: center;
-        gap: 0;
-    }
-    
-    .step {
-        max-width: 220px;
-    }
-    
-    .step__arrow {
-        display: block;
-        padding: 0 var(--spacing-md);
-    }
-    
-    /* اسکرین‌شات‌ها */
-    .screenshots__grid {
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-end;
+    .install-guide__steps {
+        grid-template-columns: repeat(3, 1fr);
         gap: var(--spacing-lg);
     }
     
-    .screenshot-item--center {
-        order: 0;
-    }
-    
-    /* فوتر */
-    .footer__inner {
-        grid-template-columns: 1fr auto 1fr;
-        text-align: right;
+    .install-step {
+        flex-direction: column;
         align-items: center;
+        text-align: center;
+        padding: var(--spacing-xl);
     }
     
-    .footer__brand {
-        align-items: flex-start;
+    .install-step__number {
+        min-width: auto;
     }
     
-    .footer__copyright {
-        text-align: left;
+    .install-step__image-wrapper {
+        max-width: 100%;
+        width: 100%;
     }
     
-    .footer__nav {
+    .install-step__tip {
         justify-content: center;
     }
 }
 
 @media (min-width: 992px) {
-    /* قهرمان */
-    .hero__inner {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-xxxl);
-        align-items: center;
+    .install-step {
+        padding: var(--spacing-xxl);
     }
     
-    .hero__image {
-        justify-content: flex-end;
-    }
-    
-    .device-frame {
-        width: 320px;
-    }
-    
-    /* ویژگی‌های اصلی */
-    .features__grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    /* دعوت نهایی */
-    .final-cta__inner {
-        grid-template-columns: 2fr 1fr;
-        text-align: right;
-        align-items: center;
-    }
-    
-    .final-cta__content {
-        align-items: flex-start;
-    }
-    
-    .final-cta__qr {
-        align-items: center;
-    }
-}
-
-@media (min-width: 1200px) {
-    .device-frame {
-        width: 360px;
-    }
-    
-    .device-frame--small {
-        width: 240px;
-    }
-    
-    .device-frame--medium {
-        width: 280px;
+    .install-step__image-wrapper {
+        max-width: 220px;
     }
 }
 
 /* ============================================================
-   رسپانسیو - موبایل (اصلاحات ویژه)
+   بهینه‌سازی برای موبایل
    ============================================================ */
 @media (max-width: 375px) {
-    .hero__actions {
-        flex-direction: column;
-        width: 100%;
+    .hero__stats {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
     }
     
-    .hero__actions .btn {
-        width: 100%;
-        justify-content: center;
+    .stat-divider {
+        display: none;
     }
     
-    .device-frame {
-        width: 200px;
-        padding: 8px;
-        border-radius: 24px;
+    .install-step {
+        padding: var(--spacing-lg);
     }
     
-    .device-frame__screen {
-        border-radius: 16px;
+    .install-step__image-wrapper {
+        max-width: 150px;
     }
-}
-
-/* ============================================================
-   کاهش حرکت (prefers-reduced-motion)
-   ============================================================ */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-    
-    .fade-in {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-/* ============================================================
-   فوکوس برای دسترسی‌پذیری
-   ============================================================ */
-:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-}
-
-/* انتخاب متن */
-::selection {
-    background-color: var(--color-primary);
-    color: var(--color-white);
 }
