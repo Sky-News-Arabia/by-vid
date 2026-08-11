@@ -105,7 +105,7 @@
 }
 
 /* ============================================================
-   بخش آموزش نصب (Installation Guide)
+   بخش آموزش نصب (Installation Guide) - فقط تصاویر
    ============================================================ */
 .install-guide {
     padding: var(--spacing-xxxl) 0;
@@ -129,13 +129,6 @@
     margin-bottom: var(--spacing-md);
 }
 
-.install-guide__subtitle {
-    color: var(--color-text-secondary);
-    font-size: 1.0625rem;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
 .install-guide__steps {
     display: grid;
     grid-template-columns: 1fr;
@@ -146,114 +139,52 @@
 
 .install-step {
     display: flex;
-    gap: var(--spacing-lg);
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
     background: var(--color-white);
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(0, 0, 0, 0.06);
     transition: all var(--transition-medium);
-    position: relative;
 }
 
 .install-step:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
     border-color: transparent;
 }
 
 .install-step__number {
-    flex-shrink: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 900;
     color: var(--color-accent);
-    opacity: 0.2;
+    opacity: 0.3;
     line-height: 1;
-    min-width: 50px;
-    text-align: center;
-}
-
-.install-step__content {
-    flex: 1;
 }
 
 .install-step__image-wrapper {
-    position: relative;
     width: 100%;
-    max-width: 200px;
-    margin: 0 auto var(--spacing-md);
+    max-width: 280px;
     border-radius: var(--radius-md);
     overflow: hidden;
-    aspect-ratio: 16/9;
     background: var(--color-bg-light);
     border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all var(--transition-medium);
+}
+
+.install-step:hover .install-step__image-wrapper {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-medium);
 }
 
 .install-step__image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
-    transition: transform var(--transition-medium);
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
-
-.install-step:hover .install-step__image {
-    transform: scale(1.02);
-}
-
-.install-step__image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(11, 42, 74, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity var(--transition-medium);
-}
-
-.install-step:hover .install-step__image-overlay {
-    opacity: 1;
-}
-
-.install-step__image-overlay svg {
-    width: 32px;
-    height: 32px;
-    color: var(--color-white);
-}
-
-.install-step__title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-xs);
-}
-
-.install-step__description {
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: var(--spacing-sm);
-}
-
-.install-step__tip {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    background: rgba(11, 42, 74, 0.06);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: 50px;
-    font-size: 0.8125rem;
-    color: var(--color-text-secondary);
-}
-
-.install-step__tip span:first-child {
-    font-size: 1rem;
-}
-
 /* ============================================================
    فوتر با لوگوی مربع
    ============================================================ */
@@ -278,23 +209,11 @@
     }
     
     .install-step {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: var(--spacing-xl);
-    }
-    
-    .install-step__number {
-        min-width: auto;
+        padding: var(--spacing-xl) var(--spacing-lg);
     }
     
     .install-step__image-wrapper {
         max-width: 100%;
-        width: 100%;
-    }
-    
-    .install-step__tip {
-        justify-content: center;
     }
 }
 
@@ -304,10 +223,19 @@
     }
     
     .install-step__image-wrapper {
-        max-width: 220px;
+        max-width: 260px;
     }
 }
 
+@media (max-width: 375px) {
+    .install-step {
+        padding: var(--spacing-lg);
+    }
+    
+    .install-step__image-wrapper {
+        max-width: 200px;
+    }
+}
 /* ============================================================
    بهینه‌سازی برای موبایل
    ============================================================ */
