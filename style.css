@@ -571,7 +571,7 @@ body {
 }
 
 /* ============================================================
-   INSTALLATION GUIDE
+   INSTALLATION GUIDE - VERSION FIXED
    ============================================================ */
 .install-guide {
     padding: 64px 0;
@@ -631,7 +631,7 @@ body {
 
 .install-step__image-wrapper {
     width: 100%;
-    max-width: 260px;
+    max-width: 280px;
     border-radius: var(--radius-md);
     overflow: hidden;
     background: var(--color-bg-light);
@@ -644,12 +644,52 @@ body {
     box-shadow: var(--shadow-medium);
 }
 
+/* ============================================================
+   اصلاح شده: تصاویر کامل بدون برش
+   ============================================================ */
 .install-step__image {
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 16/9;
-    object-fit: cover;
+    /* aspect-ratio و object-fit حذف شدند */
+}
+
+/* ============================================================
+   RESPONSIVE - بخش آموزش نصب
+   ============================================================ */
+@media (min-width: 768px) {
+    .install-guide__steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .install-step {
+        padding: 24px 16px;
+    }
+    
+    .install-step__image-wrapper {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .install-step {
+        padding: 32px;
+    }
+    
+    .install-step__image-wrapper {
+        max-width: 260px;
+    }
+}
+
+@media (max-width: 375px) {
+    .install-step {
+        padding: 20px;
+    }
+    
+    .install-step__image-wrapper {
+        max-width: 200px;
+    }
 }
 
 /* ============================================================
