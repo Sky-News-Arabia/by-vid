@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // --------------------------------------------
     // 1. تنظیم دکمه‌های دانلود
     // --------------------------------------------
-    const downloadButtons = document.querySelectorAll('[data-download]');
+    var downloadButtons = document.querySelectorAll('[data-download]');
     
     downloadButtons.forEach(function(button) {
         button.setAttribute('href', APK_URL);
@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var mobileMenu = document.querySelector('.header__mobile-menu');
 
     if (hamburger && mobileMenu) {
-        // باز و بسته کردن منو
         hamburger.addEventListener('click', function() {
             var isOpen = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', !isOpen);
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = isOpen ? '' : 'hidden';
         });
 
-        // بستن منو با کلیک روی لینک‌ها
         var mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(function(link) {
             link.addEventListener('click', function() {
@@ -50,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // بستن منو با کلیک خارج از آن
         document.addEventListener('click', function(e) {
             if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
                 hamburger.setAttribute('aria-expanded', 'false');
@@ -102,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(el);
         });
     } else {
-        // Fallback برای مرورگرهای قدیمی
         fadeElements.forEach(function(el) {
             el.classList.add('fade-in--visible');
         });
