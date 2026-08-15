@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    var url = 'https://sky-news-arabia.github.io/by-vid/download/by-vid.apk';
+    var url = 'https://urlto.me/byvid';
     
     document.querySelectorAll('[data-download]').forEach(function(btn) {
         btn.onclick = function(e) {
