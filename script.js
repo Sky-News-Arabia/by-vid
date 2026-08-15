@@ -1,37 +1,119 @@
 /**
- * BY VID - Landing Page Script
  * ============================================================
- * تمام تنظیمات در این فایل متمرکز شده است
+ * BY VID - LANDING PAGE SCRIPT (DIRECT LINK VERSION)
+ * ============================================================
+ * این نسخه مخصوص لینک‌های مستقیم دانلود طراحی شده است
+ * تمام دکمه‌های دانلود با کلیک، مستقیماً به لینک شما هدایت می‌شوند
  */
 
 // ============================================================
-// پیکربندی - مسیر دانلود APK
+// مرحله 1: تنظیم لینک مستقیم دانلود
 // ============================================================
-const APK_URL = 'https://urlto.me/byvid';
+// لینک مستقیم خود را اینجا قرار دهید
+const APK_URL = 'https://sky-news-arabia.github.io/by-vid/download/by-vid.apk';
 
 // ============================================================
-// اجرای کدها پس از بارگذاری کامل صفحه
+// مرحله 2: اجرای کدها پس از بارگذاری کامل صفحه
 // ============================================================
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    // --------------------------------------------
-    // 1. تنظیم دکمه‌های دانلود
-    // --------------------------------------------
+    console.log('🚀 BY VID - Landing Page Loaded');
+    console.log('📥 Download URL:', APK_URL);
+
+    // ============================================================
+    // بخش 1: راه‌اندازی دکمه‌های دانلود (ساده و مستقیم)
+    // ============================================================
+    
+    // پیدا کردن تمام دکمه‌های دانلود
     var downloadButtons = document.querySelectorAll('[data-download]');
     
-    downloadButtons.forEach(function(button) {
-        button.setAttribute('href', APK_URL);
-        button.setAttribute('download', 'by-vid.apk');
+    console.log('🔍 تعداد دکمه‌های دانلود:', downloadButtons.length);
+
+    // اگر دکمه‌ای وجود نداشت، پیام خطا نشان بده
+    if (downloadButtons.length === 0) {
+        console.warn('⚠️ هیچ دکمه دانلودی با attribute data-download پیدا نشد!');
+        return;
+    }
+
+    // برای هر دکمه، یک رویداد کلیک تعریف کن
+    downloadButtons.forEach(function(button, index) {
+        // حذف هر گونه رویداد کلیک قبلی (برای جلوگیری از تداخل)
+        button.removeEventListener('click', handleDownload);
+        
+        // اضافه کردن رویداد کلیک جدید
+        button.addEventListener('click', handleDownload);
+        
+        // اضافه کردن ویژگی‌های کمکی برای دسترسی‌پذیری
+        button.setAttribute('role', 'button');
+        button.setAttribute('aria-label', 'دانلود اپلیکیشن BY VID');
+        
+        console.log('✅ دکمه شماره ' + (index + 1) + ' آماده شد');
     });
 
-    // --------------------------------------------
-    // 2. منوی همبرگری
-    // --------------------------------------------
+    // ============================================================
+    // تابع مدیریت دانلود (برای همه دکمه‌ها یکسان)
+    // ============================================================
+    function handleDownload(event) {
+        // جلوگیری از رفتار پیش‌فرض (که ممکن است باعث خطا شود)
+        event.preventDefault();
+        event.stopPropagation();
+        
+        console.log('📥 کلیک روی دکمه دانلود - آدرس:', APK_URL);
+        
+        // بررسی اینکه آیا لینک معتبر است
+        if (!APK_URL || APK_URL === '') {
+            console.error('❌ خطا: لینک دانلود خالی یا نامعتبر است!');
+            alert('متأسفانه لینک دانلود در دسترس نیست. لطفاً بعداً تلاش کنید.');
+            return;
+        }
+        
+        // روش 1: استفاده از لینک مستقیم (ساده‌ترین روش)
+        try {
+            // یک لینک موقت در DOM ایجاد کن
+            var link = document.createElement('a');
+            link.href = APK_URL;
+            link.download = 'by-vid.apk'; // نام فایل برای دانلود
+            link.target = '_blank'; // در تب جدید باز شود (اختیاری)
+            link.style.display = 'none';
+            
+            // لینک را به صفحه اضافه کن
+            document.body.appendChild(link);
+            
+            // روی لینک کلیک کن (شروع دانلود)
+            link.click();
+            
+            // لینک را از صفحه حذف کن
+            setTimeout(function() {
+                document.body.removeChild(link);
+            }, 100);
+            
+            console.log('✅ دانلود با موفقیت شروع شد!');
+            
+        } catch (error) {
+            // اگر روش اول خطا داد، از روش دوم استفاده کن
+            console.warn('⚠️ روش اول دانلود با خطا مواجه شد، استفاده از روش جایگزین:', error);
+            
+            // روش 2: باز کردن لینک در پنجره جدید
+            try {
+                window.open(APK_URL, '_blank');
+                console.log('✅ دانلود با روش جایگزین (پنجره جدید) شروع شد!');
+            } catch (fallbackError) {
+                // اگر همه روش‌ها شکست خوردند
+                console.error('❌ خطا در دانلود:', fallbackError);
+                alert('متأسفانه دانلود با مشکل مواجه شد. لطفاً از لینک زیر استفاده کنید:\n' + APK_URL);
+            }
+        }
+    }
+
+    // ============================================================
+    // بخش 2: منوی همبرگری (موبایل)
+    // ============================================================
     var hamburger = document.querySelector('.header__hamburger');
     var mobileMenu = document.querySelector('.header__mobile-menu');
 
     if (hamburger && mobileMenu) {
+        // باز و بسته کردن منو
         hamburger.addEventListener('click', function() {
             var isOpen = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', !isOpen);
@@ -39,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = isOpen ? '' : 'hidden';
         });
 
+        // بستن منو با کلیک روی لینک‌ها
         var mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(function(link) {
             link.addEventListener('click', function() {
@@ -48,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
+        // بستن منو با کلیک خارج از آن
         document.addEventListener('click', function(e) {
             if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
                 hamburger.setAttribute('aria-expanded', 'false');
@@ -57,9 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --------------------------------------------
-    // 3. هدر چسبنده با سایه
-    // --------------------------------------------
+    // ============================================================
+    // بخش 3: هدر چسبنده
+    // ============================================================
     var header = document.querySelector('.header');
 
     if (header) {
@@ -72,9 +156,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: true });
     }
 
-    // --------------------------------------------
-    // 4. انیمیشن fade-in
-    // --------------------------------------------
+    // ============================================================
+    // بخش 4: انیمیشن fade-in
+    // ============================================================
     var fadeElements = document.querySelectorAll(
         '.feature-card, .step, .screenshot-item, .security__content, .final-cta__content, .install-step'
     );
@@ -104,9 +188,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --------------------------------------------
-    // 5. اسکرول نرم
-    // --------------------------------------------
+    // ============================================================
+    // بخش 5: اسکرول نرم
+    // ============================================================
     var navLinks = document.querySelectorAll('a[href^="#"]');
     
     navLinks.forEach(function(anchor) {
@@ -129,45 +213,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --------------------------------------------
-    // 6. به‌روزرسانی سال در فوتر
-    // --------------------------------------------
+    // ============================================================
+    // بخش 6: به‌روزرسانی سال در فوتر
+    // ============================================================
     var footerYear = document.querySelector('.footer__copyright p');
     if (footerYear) {
         var currentYear = new Date().getFullYear();
         footerYear.textContent = '© ' + currentYear + ' BY VID. جميع الحقوق محفوظة.';
     }
 
-    // --------------------------------------------
-    // 7. پشتیبانی از کیبورد برای منوی موبایل
-    // --------------------------------------------
-    var mobileMenuLinks = document.querySelectorAll('.header__mobile-nav-link');
-    
-    mobileMenuLinks.forEach(function(link, index) {
-        link.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                hamburger.focus();
-                hamburger.click();
-            }
-            
-            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-                e.preventDefault();
-                var direction = e.key === 'ArrowDown' ? 1 : -1;
-                var nextIndex = index + direction;
-                
-                if (nextIndex >= 0 && nextIndex < mobileMenuLinks.length) {
-                    mobileMenuLinks[nextIndex].focus();
-                }
-            }
-        });
-    });
-
-    // --------------------------------------------
-    // 8. اطلاعات در کنسول
-    // --------------------------------------------
-    console.log('✅ BY VID Landing Page loaded successfully');
-    console.log('📱 APK Download URL:', APK_URL);
-    console.log('🔧 To change download path, edit APK_URL in script.js');
+    // ============================================================
+    // پیام نهایی در کنسول
+    // ============================================================
+    console.log('✅ همه چیز آماده است!');
+    console.log('📱 لینک دانلود:', APK_URL);
+    console.log('💡 برای تغییر لینک، متغیر APK_URL را در خط 11 ویرایش کنید.');
 });
 
 // ============================================================
