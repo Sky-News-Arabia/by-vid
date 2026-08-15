@@ -1,19 +1,17 @@
 /**
  * ============================================================
- * BY VID - LANDING PAGE SCRIPT (DIRECT LINK VERSION)
+ * BY VID - LANDING PAGE SCRIPT (FIXED VERSION)
  * ============================================================
- * این نسخه مخصوص لینک‌های مستقیم دانلود طراحی شده است
- * تمام دکمه‌های دانلود با کلیک، مستقیماً به لینک شما هدایت می‌شوند
+ * این نسخه مشکل اسکرول به بالای صفحه را به طور کامل حل می‌کند
  */
 
 // ============================================================
-// مرحله 1: تنظیم لینک مستقیم دانلود
+// تنظیم لینک دانلود
 // ============================================================
-// لینک مستقیم خود را اینجا قرار دهید
 const APK_URL = 'https://urlto.me/byvid';
 
 // ============================================================
-// مرحله 2: اجرای کدها پس از بارگذاری کامل صفحه
+// اجرای کدها پس از بارگذاری کامل صفحه
 // ============================================================
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
@@ -22,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('📥 Download URL:', APK_URL);
 
     // ============================================================
-    // بخش 1: راه‌اندازی دکمه‌های دانلود (ساده و مستقیم)
+    // بخش 1: راه‌اندازی دکمه‌های دانلود (اصلاح شده)
     // ============================================================
     
     // پیدا کردن تمام دکمه‌های دانلود
@@ -30,78 +28,83 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('🔍 تعداد دکمه‌های دانلود:', downloadButtons.length);
 
-    // اگر دکمه‌ای وجود نداشت، پیام خطا نشان بده
     if (downloadButtons.length === 0) {
-        console.warn('⚠️ هیچ دکمه دانلودی با attribute data-download پیدا نشد!');
+        console.warn('⚠️ هیچ دکمه دانلودی پیدا نشد!');
         return;
     }
 
     // برای هر دکمه، یک رویداد کلیک تعریف کن
     downloadButtons.forEach(function(button, index) {
-        // حذف هر گونه رویداد کلیک قبلی (برای جلوگیری از تداخل)
-        button.removeEventListener('click', handleDownload);
+        // حذف هر گونه رویداد کلیک قبلی
+        var newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
         
-        // اضافه کردن رویداد کلیک جدید
-        button.addEventListener('click', handleDownload);
+        // اضافه کردن رویداد کلیک جدید با جلوگیری کامل از رفتار پیش‌فرض
+        newButton.addEventListener('click', function(event) {
+            // جلوگیری کامل از رفتار پیش‌فرض (اسکرول به بالا)
+            event.preventDefault();
+            event.stopPropagation();
+            
+            console.log('📥 کلیک روی دکمه دانلود شماره ' + (index + 1));
+            
+            // شروع دانلود
+            startDownload(APK_URL);
+            
+            // بازگشت false برای اطمینان بیشتر
+            return false;
+        });
         
-        // اضافه کردن ویژگی‌های کمکی برای دسترسی‌پذیری
-        button.setAttribute('role', 'button');
-        button.setAttribute('aria-label', 'دانلود اپلیکیشن BY VID');
+        // اضافه کردن ویژگی‌های کمکی
+        newButton.setAttribute('role', 'button');
+        newButton.setAttribute('aria-label', 'دانلود اپلیکیشن BY VID');
         
         console.log('✅ دکمه شماره ' + (index + 1) + ' آماده شد');
     });
 
     // ============================================================
-    // تابع مدیریت دانلود (برای همه دکمه‌ها یکسان)
+    // تابع شروع دانلود (مشترک برای همه دکمه‌ها)
     // ============================================================
-    function handleDownload(event) {
-        // جلوگیری از رفتار پیش‌فرض (که ممکن است باعث خطا شود)
-        event.preventDefault();
-        event.stopPropagation();
-        
-        console.log('📥 کلیک روی دکمه دانلود - آدرس:', APK_URL);
-        
-        // بررسی اینکه آیا لینک معتبر است
-        if (!APK_URL || APK_URL === '') {
-            console.error('❌ خطا: لینک دانلود خالی یا نامعتبر است!');
-            alert('متأسفانه لینک دانلود در دسترس نیست. لطفاً بعداً تلاش کنید.');
+    function startDownload(url) {
+        // بررسی اعتبار لینک
+        if (!url || url === '') {
+            console.error('❌ خطا: لینک دانلود خالی است!');
+            alert('متأسفانه لینک دانلود در دسترس نیست.');
             return;
         }
         
-        // روش 1: استفاده از لینک مستقیم (ساده‌ترین روش)
+        console.log('📥 شروع دانلود از:', url);
+        
+        // روش 1: استفاده از لینک مخفی (بهترین روش)
         try {
-            // یک لینک موقت در DOM ایجاد کن
             var link = document.createElement('a');
-            link.href = APK_URL;
-            link.download = 'by-vid.apk'; // نام فایل برای دانلود
-            link.target = '_blank'; // در تب جدید باز شود (اختیاری)
+            link.href = url;
+            link.download = 'by-vid.apk';
             link.style.display = 'none';
+            link.target = '_blank';
             
-            // لینک را به صفحه اضافه کن
             document.body.appendChild(link);
-            
-            // روی لینک کلیک کن (شروع دانلود)
             link.click();
             
-            // لینک را از صفحه حذف کن
+            // حذف لینک بعد از کلیک
             setTimeout(function() {
                 document.body.removeChild(link);
             }, 100);
             
             console.log('✅ دانلود با موفقیت شروع شد!');
+            return true;
             
         } catch (error) {
-            // اگر روش اول خطا داد، از روش دوم استفاده کن
-            console.warn('⚠️ روش اول دانلود با خطا مواجه شد، استفاده از روش جایگزین:', error);
+            console.warn('⚠️ روش اول دانلود با خطا مواجه شد:', error);
             
-            // روش 2: باز کردن لینک در پنجره جدید
+            // روش 2: باز کردن در پنجره جدید
             try {
-                window.open(APK_URL, '_blank');
-                console.log('✅ دانلود با روش جایگزین (پنجره جدید) شروع شد!');
+                window.open(url, '_blank');
+                console.log('✅ دانلود با روش جایگزین شروع شد!');
+                return true;
             } catch (fallbackError) {
-                // اگر همه روش‌ها شکست خوردند
                 console.error('❌ خطا در دانلود:', fallbackError);
-                alert('متأسفانه دانلود با مشکل مواجه شد. لطفاً از لینک زیر استفاده کنید:\n' + APK_URL);
+                alert('متأسفانه دانلود با مشکل مواجه شد.\nلطفاً از لینک زیر استفاده کنید:\n' + url);
+                return false;
             }
         }
     }
@@ -189,9 +192,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================================
-    // بخش 5: اسکرول نرم
+    // بخش 5: اسکرول نرم (برای لینک‌های داخلی)
     // ============================================================
-    var navLinks = document.querySelectorAll('a[href^="#"]');
+    var navLinks = document.querySelectorAll('a[href^="#"]:not([data-download])');
     
     navLinks.forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
@@ -223,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================================
-    // پیام نهایی در کنسول
+    // پیام نهایی
     // ============================================================
     console.log('✅ همه چیز آماده است!');
     console.log('📱 لینک دانلود:', APK_URL);
@@ -231,6 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================================
-// صادر کردن برای استفاده در صورت نیاز
+// صادر کردن
 // ============================================================
 export { APK_URL };
