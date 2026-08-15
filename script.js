@@ -1,51 +1,56 @@
 /**
+ * BY VID - Landing Page Script
  * ============================================================
- * پیکربندی BY VID
- * ============================================================
+ * تمام تنظیمات در این فایل متمرکز شده است
  */
 
+// ============================================================
+// پیکربندی - مسیر دانلود APK
+// ============================================================
 const APK_URL = './download/by-vid.apk';
 
+// ============================================================
+// اجرای کدها پس از بارگذاری کامل صفحه
+// ============================================================
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
-    
-    // ============================================================
-    // ۱. تنظیم مسیر دانلود
-    // ============================================================
+
+    // --------------------------------------------
+    // 1. تنظیم دکمه‌های دانلود
+    // --------------------------------------------
     const downloadButtons = document.querySelectorAll('[data-download]');
     
-    downloadButtons.forEach(button => {
+    downloadButtons.forEach(function(button) {
         button.setAttribute('href', APK_URL);
         button.setAttribute('download', 'by-vid.apk');
-        
-        button.addEventListener('click', function(e) {
-            console.log('📥 Download initiated:', APK_URL);
-        });
     });
-    
-    // ============================================================
-    // ۲. منوی همبرگری
-    // ============================================================
-    const hamburger = document.querySelector('.header__hamburger');
-    const mobileMenu = document.querySelector('.header__mobile-menu');
-    
+
+    // --------------------------------------------
+    // 2. منوی همبرگری
+    // --------------------------------------------
+    var hamburger = document.querySelector('.header__hamburger');
+    var mobileMenu = document.querySelector('.header__mobile-menu');
+
     if (hamburger && mobileMenu) {
+        // باز و بسته کردن منو
         hamburger.addEventListener('click', function() {
-            const isOpen = this.getAttribute('aria-expanded') === 'true';
+            var isOpen = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', !isOpen);
             mobileMenu.classList.toggle('header__mobile-menu--open');
             document.body.style.overflow = isOpen ? '' : 'hidden';
         });
-        
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
+
+        // بستن منو با کلیک روی لینک‌ها
+        var mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(function(link) {
             link.addEventListener('click', function() {
                 hamburger.setAttribute('aria-expanded', 'false');
                 mobileMenu.classList.remove('header__mobile-menu--open');
                 document.body.style.overflow = '';
             });
         });
-        
+
+        // بستن منو با کلیک خارج از آن
         document.addEventListener('click', function(e) {
             if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
                 hamburger.setAttribute('aria-expanded', 'false');
@@ -54,12 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // ============================================================
-    // ۳. هدر چسبنده
-    // ============================================================
-    const header = document.querySelector('.header');
-    
+
+    // --------------------------------------------
+    // 3. هدر چسبنده با سایه
+    // --------------------------------------------
+    var header = document.querySelector('.header');
+
     if (header) {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 20) {
@@ -69,19 +74,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, { passive: true });
     }
-    
-    // ============================================================
-    // ۴. انیمیشن fade-in
-    // ============================================================
-    const fadeElements = document.querySelectorAll(
+
+    // --------------------------------------------
+    // 4. انیمیشن fade-in
+    // --------------------------------------------
+    var fadeElements = document.querySelectorAll(
         '.feature-card, .step, .screenshot-item, .security__content, .final-cta__content, .install-step'
     );
-    
+
     if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry, index) {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
+                    setTimeout(function() {
                         entry.target.classList.add('fade-in--visible');
                     }, index * 100);
                     observer.unobserve(entry.target);
@@ -91,31 +96,34 @@ document.addEventListener('DOMContentLoaded', function() {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
-        
-        fadeElements.forEach(el => {
+
+        fadeElements.forEach(function(el) {
             el.classList.add('fade-in');
             observer.observe(el);
         });
     } else {
-        fadeElements.forEach(el => {
+        // Fallback برای مرورگرهای قدیمی
+        fadeElements.forEach(function(el) {
             el.classList.add('fade-in--visible');
         });
     }
+
+    // --------------------------------------------
+    // 5. اسکرول نرم
+    // --------------------------------------------
+    var navLinks = document.querySelectorAll('a[href^="#"]');
     
-    // ============================================================
-    // ۵. اسکرول نرم
-    // ============================================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    navLinks.forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
+            var targetId = this.getAttribute('href');
             if (targetId === '#') return;
             
-            const targetElement = document.querySelector(targetId);
+            var targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + 
-                                      window.pageYOffset - headerHeight;
+                var headerHeight = document.querySelector('.header').offsetHeight;
+                var targetPosition = targetElement.getBoundingClientRect().top + 
+                                    window.pageYOffset - headerHeight;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -124,21 +132,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // ============================================================
-    // ۶. به‌روزرسانی سال
-    // ============================================================
-    const footerYear = document.querySelector('.footer__copyright p');
+
+    // --------------------------------------------
+    // 6. به‌روزرسانی سال در فوتر
+    // --------------------------------------------
+    var footerYear = document.querySelector('.footer__copyright p');
     if (footerYear) {
-        const currentYear = new Date().getFullYear();
-        footerYear.textContent = `© ${currentYear} BY VID. جميع الحقوق محفوظة.`;
+        var currentYear = new Date().getFullYear();
+        footerYear.textContent = '© ' + currentYear + ' BY VID. جميع الحقوق محفوظة.';
     }
+
+    // --------------------------------------------
+    // 7. پشتیبانی از کیبورد برای منوی موبایل
+    // --------------------------------------------
+    var mobileMenuLinks = document.querySelectorAll('.header__mobile-nav-link');
     
-    // ============================================================
-    // ۷. پشتیبانی از کیبورد
-    // ============================================================
-    const mobileMenuLinks = document.querySelectorAll('.header__mobile-nav-link');
-    mobileMenuLinks.forEach((link, index) => {
+    mobileMenuLinks.forEach(function(link, index) {
         link.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 hamburger.focus();
@@ -147,8 +156,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
                 e.preventDefault();
-                const direction = e.key === 'ArrowDown' ? 1 : -1;
-                const nextIndex = index + direction;
+                var direction = e.key === 'ArrowDown' ? 1 : -1;
+                var nextIndex = index + direction;
                 
                 if (nextIndex >= 0 && nextIndex < mobileMenuLinks.length) {
                     mobileMenuLinks[nextIndex].focus();
@@ -156,9 +165,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
+    // --------------------------------------------
+    // 8. اطلاعات در کنسول
+    // --------------------------------------------
     console.log('✅ BY VID Landing Page loaded successfully');
-    console.log(`📱 APK Download URL: ${APK_URL}`);
+    console.log('📱 APK Download URL:', APK_URL);
+    console.log('🔧 To change download path, edit APK_URL in script.js');
 });
 
+// ============================================================
+// صادر کردن برای استفاده در صورت نیاز
+// ============================================================
 export { APK_URL };
